@@ -20,7 +20,16 @@ struct RPiMock : public RPi
 class TServer : public lo::Server
 {
 public:
-  TServer() : lo::Server(0) {}
+  static void on_err(int num, const char* msg, const char* where)
+  {
+    fprintf(stderr, "%s (%s)\n", msg, where);
+  }
+
+  TServer() : lo::Server(nullptr, on_err)
+  {
+    printf("%s\n", url().c_str());
+  }
+
   using lo::Server::_handlers;
 };
 
@@ -67,12 +76,12 @@ TEST(Handler, handlers_registered_and_deregistered) {
   {
     Handler h(&osc, &pi);
 
-    EXPECT_THAT(osc._handlers.count("/set"), Eq(1));
-    EXPECT_THAT(osc._handlers.count("/clear"), Eq(1));
+    EXPECT_THAT(osc._handlers.count("/set,i"), Eq(1));
+    EXPECT_THAT(osc._handlers.count("/clear,i"), Eq(1));
   }
 
-  EXPECT_THAT(osc._handlers.count("/set"), Eq(0));
-  EXPECT_THAT(osc._handlers.count("/clear"), Eq(0));
+  EXPECT_THAT(osc._handlers.count("/set,i"), Eq(0));
+  EXPECT_THAT(osc._handlers.count("/clear,i"), Eq(0));
 }
 
 /*

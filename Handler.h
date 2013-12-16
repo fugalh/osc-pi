@@ -10,11 +10,11 @@ class Handler
 {
 public:
   Handler(lo::Server*, RPi*);
-  virtual ~Handler() {}
+  virtual ~Handler();
 
   static std::vector<uint8_t> pins;
 
 protected:
   RPi* pi_;
-  lo::Server* losrv_;
+  lo::Server* osc_;
 };

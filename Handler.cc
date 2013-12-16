@@ -27,10 +27,19 @@ vector<uint8_t> Handler::pins
   */
 };
 
-Handler::Handler(lo::Server* losrv, RPi* pi) : losrv_(losrv), pi_(pi)
+Handler::Handler(lo::Server* osc, RPi* pi) : osc_(osc), pi_(pi)
 {
   for (auto pin : pins)
   {
     pi_->gpio_output(pin);
   }
+
+  osc_->add_method("/set", "i", [](){});
+  osc_->add_method("/clear", "i", [](){});
+}
+
+Handler::~Handler()
+{
+  osc_->del_method("/set", "i");
+  osc_->del_method("/clear", "i");
 }
