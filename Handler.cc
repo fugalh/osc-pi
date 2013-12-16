@@ -27,7 +27,7 @@ vector<uint8_t> Handler::pins
   */
 };
 
-Handler::Handler(RPi* pi) : pi_(pi)
+Handler::Handler(lo::Server* losrv, RPi* pi) : losrv_(losrv), pi_(pi)
 {
   for (auto pin : pins)
   {
