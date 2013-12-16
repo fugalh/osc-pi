@@ -13,6 +13,7 @@ struct RPiMock : public RPi
 
   MOCK_METHOD2(gpio_fsel, void(uint8_t pin, uint8_t mode));
   MOCK_METHOD1(gpio_set, void(uint8_t pin));
+  MOCK_METHOD1(gpio_clr, void(uint8_t pin));
 };
 
 TEST(RPi, gpio_fsel)
@@ -24,4 +25,16 @@ TEST(RPi, gpio_fsel)
 
   pi.gpio_input(4);
   pi.gpio_output(2);
+}
+
+TEST(RPi, gpio_setclr)
+{
+  NiceMock<RPiMock> pi;
+  pi.gpio_output(4);
+
+  EXPECT_CALL(pi, gpio_set(4));
+  EXPECT_CALL(pi, gpio_clr(4));
+
+  pi.gpio_set(4);
+  pi.gpio_clr(4);
 }
