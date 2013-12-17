@@ -1,13 +1,11 @@
 #include "RPi.h"
 #include <bcm2835.h>
 
-RPi::RPi()
+RPi::RPi(bool debug)
 {
+  bcm2835_set_debug(debug);
   bcm2835_init();
 }
-
-// so we don't call bcm2835_init in testing.
-RPi::RPi(bool for_testing) {}
 
 RPi::~RPi()
 {

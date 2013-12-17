@@ -1,15 +1,16 @@
 #include <gmock/gmock.h>
+
 #include "RPi.h"
 #include "Handler.h"
+
+#include <lo/lo_cpp.h>
+#include <bcm2835.h>
 
 using namespace ::testing;
 
 struct RPiMock : public RPi
 {
-  RPiMock() : RPi(true)
-  {
-    bcm2835_set_debug(1);
-  }
+  RPiMock() : RPi(true) {}
   ~RPiMock() {}
 
   MOCK_METHOD2(gpio_fsel, void(uint8_t pin, uint8_t mode));

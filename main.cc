@@ -15,8 +15,7 @@ namespace {
 int main(void) {
   lo::Server osc(PORT, on_osc_err);
 
-  RPi pi;
-  pi.set_debug(true);
+  RPi pi(true);
 
   Handler h(&osc, &pi);
 

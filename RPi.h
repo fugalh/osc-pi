@@ -4,7 +4,7 @@
 class RPi
 {
 public:
-  RPi();
+  RPi(bool debug);
   virtual ~RPi();
 
   virtual void gpio_set(uint8_t pin);
@@ -15,7 +15,4 @@ public:
   void gpio_input(uint8_t pin);
 
   void set_debug(bool);
-
-protected:
-  RPi(bool forTesting);
 };
