@@ -46,6 +46,13 @@ Handler::Handler(lo::Server* osc, RPi* pi) : osc_(osc), pi_(pi)
     [this](lo::Message msg) {
       pi_->gpio_clr(msg.argv()[0]->i);
     });
+  osc_->add_method("/gpio/4", "i",
+    [this](lo::Message msg) {
+      if (msg.argv()[0]->i > 0)
+        pi_->gpio_set(4);
+      else
+        pi_->gpio_clr(4);
+    });
 }
 
 Handler::~Handler()
