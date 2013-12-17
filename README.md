@@ -1,3 +1,5 @@
+# OSCπ
+
 Control your Raspberry Pi with OSC.
 
 ## Synopsis
@@ -10,12 +12,15 @@ Run osc-pi on your pi, then send it OSC messages. The default port is 7433
 Where `$pin` is the pi's pin number, not the gpio number.
 
 ## Requirements
-- A Raspberry Pi 2 (not difficult to support v1, send me an email).
+- A [Raspberry Pi 2](http://www.raspberrypi.org/)
+  (not difficult to support v1, send me an email).
 - [liblo >= 0.28rc](http://liblo.sourceforge.net/)
-To build liblo 0.28rc on Raspbian which defaults to gcc 4.6, see
-`liblo-gcc46.patch`. The Raspbian package liblo-dev is too old.
+  To build liblo 0.28rc on Raspbian which defaults to gcc 4.6, see
+  [liblo-gcc46.patch](https://raw.github.com/fugalh/osc-pi/master/liblo_gcc46.patch).
+  The Raspbian package liblo-dev is too old.
 - [bcm2835](http://www.airspayce.com/mikem/bcm2835/index.html)
-- For testing only, you need [gmock](). I do this on my laptop only.
+- For testing only, you need [gmock](https://code.google.com/p/googlemock/).
+  I do this on my laptop only.
 
 Tested with the default g++ on Raspbian which is currently gcc 4.6.
 
