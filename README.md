@@ -1,6 +1,7 @@
 # OSCπ
 
-Control your Raspberry Pi with OSC.
+Control your [Raspberry Pi](http://www.raspberrypi.org/)
+with [OSC](http://opensoundcontrol.org/).
 
 ## Synopsis
 
@@ -12,8 +13,8 @@ Run osc-pi on your pi, then send it OSC messages. The default port is 7433
 Where `$pin` is the pi's pin number, not the gpio number.
 
 ## Requirements
-- A [Raspberry Pi 2](http://www.raspberrypi.org/)
-  (not difficult to support v1, send me an email).
+- A Raspberry Pi 2. (It's probably not difficult to support v1, send me an
+  email if you need that).
 - [liblo >= 0.28rc](http://liblo.sourceforge.net/)
   To build liblo 0.28rc on Raspbian which defaults to gcc 4.6, see
   [liblo-gcc46.patch](https://raw.github.com/fugalh/osc-pi/master/liblo_gcc46.patch).
