@@ -1,3 +1,6 @@
+Instead of applying this patch, you could try installing g++-4.7 (or higher)
+and building with that instead.
+
 Index: liblo-0.28rc/lo/lo_cpp.h
 ===================================================================
 --- liblo-0.28rc.orig/lo/lo_cpp.h	2013-11-21 09:01:04.000000000 -0800
