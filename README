@@ -1,3 +1,6 @@
 Requirements
-- liblo http://liblo.sourceforge.net/
+- liblo >= 0.28rc http://liblo.sourceforge.net/
 - bcm2835 http://www.airspayce.com/mikem/bcm2835/index.html
+
+To build liblo 0.28rc on raspbian which defaults to gcc 4.6, see
+liblo-gcc46.patch.
