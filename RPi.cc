@@ -38,3 +38,8 @@ void RPi::gpio_input(uint8_t pin)
 {
   gpio_fsel(pin, BCM2835_GPIO_FSEL_INPT);
 }
+
+void RPi::set_debug(bool b)
+{
+  bcm2835_set_debug(b);
+}

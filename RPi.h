@@ -14,6 +14,8 @@ public:
   void gpio_output(uint8_t pin);
   void gpio_input(uint8_t pin);
 
+  void set_debug(bool);
+
 protected:
   RPi(bool forTesting);
 };
