@@ -5,23 +5,24 @@ with [OSC](http://opensoundcontrol.org/).
 
 ## Synopsis
 
-Run osc-pi on your pi, then send it OSC messages. The default port is 7433
+Run `osc-pi` on your RPi, then send it OSC messages. The default port is 7433
 (tree) and it responds to the following messages:
 - `/set i $pin`
 - `/clear i $pin`
 
-Where `$pin` is the pi's pin number, not the gpio number.
+Where `$pin` is the GPIO number, not the RPi's P1 pin number. (i.e. 4 not 7)
+![Raspberry Pi pinout](http://pingig.com/sites/default/files/raspberrypirev2pinout.jpg)
 
 ## Requirements
-- A Raspberry Pi 2. (It's probably not difficult to support v1, send me an
-  email if you need that).
-- [liblo >= 0.28rc](http://liblo.sourceforge.net/)
+- A Raspberry Pi revision 2. (It's probably not difficult to support v1, send
+  me an email if you need that).
+- [liblo >= 0.28rc](http://liblo.sourceforge.net/).
   To build liblo 0.28rc on Raspbian which defaults to gcc 4.6, see
   [liblo-gcc46.patch](https://raw.github.com/fugalh/osc-pi/master/liblo_gcc46.patch).
   The Raspbian package liblo-dev is too old.
-- [bcm2835](http://www.airspayce.com/mikem/bcm2835/index.html)
-- For testing only, you need [gmock](https://code.google.com/p/googlemock/).
-  I do this on my laptop only.
+- [bcm2835](http://www.airspayce.com/mikem/bcm2835/index.html). (Tested with version 1.34)
+- For running the tests only, you need [gmock](https://code.google.com/p/googlemock/).
+  I only do this on my laptop.
 
 Tested with the default g++ on Raspbian which is currently gcc 4.6.
 
