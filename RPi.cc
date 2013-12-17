@@ -1,10 +1,19 @@
 #include "RPi.h"
 #include <bcm2835.h>
+#include <stdio.h>
+#include <stdexcept>
 
 RPi::RPi(bool debug)
 {
   bcm2835_set_debug(debug);
-  bcm2835_init();
+  if (bcm2835_init() == 0)
+  {
+    fprintf(stderr, "Failed to initialize Raspberry Pi. "
+            "Falling back to debug mode.\n");
+    bcm2835_set_debug(true);
+    if (bcm2835_init() == 0)
+      throw std::runtime_error("bcm2835_init failed again");
+  }
 }
 
 RPi::~RPi()

@@ -3,7 +3,7 @@ CPPFLAGS=-g -I/usr/local/include -I/opt/local/include
 LDFLAGS=-L/usr/local/lib -L/opt/local/lib
 LDLIBS=-lstdc++ -lbcm2835 -llo
 
-all: runtest osc-pi
+all: test osc-pi runtest
 
 osc-pi: main.o RPi.o Handler.o
 	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@
