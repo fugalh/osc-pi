@@ -33,6 +33,16 @@ The makefile isn't full-blown autoconf or anything quite that smart, but it
 should be easy enough to tweak to use your include paths if you install the
 dependencies somewhere weird.
 
+## Future directions
+Because you often don't have a lot of control over the structure of the
+messages you can send from an OSC gui builder (e.g.
+[TouchOSC](http://hexler.net/software/touchosc)) or
+[Control](http://charlie-roberts.com/Control/), it will need to be easier to
+set up custom OSC paths. Maybe a config file. Maybe just an easily-edited
+function. There shall be refactoring!
+
+Either way, there's a need to flesh out the OSC messages we accept.
+
 ## License
 I haven't decided yet. Something open source. If you're going to distribute it
 and you're concerned send me an email.
