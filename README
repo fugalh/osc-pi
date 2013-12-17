@@ -1,0 +1,3 @@
+Requirements
+- liblo http://liblo.sourceforge.net/
+- bcm2835 http://www.airspayce.com/mikem/bcm2835/index.html
