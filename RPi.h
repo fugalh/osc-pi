@@ -1,6 +1,5 @@
 #pragma once
-// http://www.airspayce.com/mikem/bcm2835/
-#include <bcm2835.h>
+#include <cstdint>
 
 class RPi
 {

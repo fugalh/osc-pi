@@ -1,5 +1,9 @@
 #include "Handler.h"
 
+#include <bcm2835.h>
+#include <lo/lo_cpp.h>
+#include "RPi.h"
+
 using std::vector;
 
 vector<uint8_t> Handler::pins

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "RPi.h"
-
-#include <lo/lo_cpp.h>
 #include <memory>
 #include <vector>
+
+class RPi;
+namespace lo { class Server; }
 
 class Handler
 {
