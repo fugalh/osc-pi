@@ -2,6 +2,7 @@
 #include "RPi.h"
 
 #include <lo/lo_cpp.h>
+#include <stdexcept>
 #include <unistd.h>
 
 #define PORT 7433
@@ -16,13 +17,14 @@ namespace
 
   struct Opts
   {
-    uint16_t port { 7433 };
-    bool debug { false };
+    Opts() : port(7433), debug(false) {}
+    uint16_t port;
+    bool debug;
   };
 
   Opts parseopts(int argc, char** argv) {
     Opts opts;
-    char o;
+    int o;
     while ((o = getopt(argc, argv, "hdp:")) != -1)
     {
       switch (o)

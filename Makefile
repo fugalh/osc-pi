@@ -1,9 +1,7 @@
-CXXFLAGS=-std=c++11
+CXXFLAGS=-std=c++0x
 CPPFLAGS=-g -I/usr/local/include -I/opt/local/include
 LDFLAGS=-L/usr/local/lib -L/opt/local/lib
-LDLIBS=-lstdc++ -lbcm2835 -llo
-
-all: test osc-pi runtest
+LDLIBS=-lbcm2835 -llo
 
 osc-pi: main.o RPi.o Handler.o
 	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@
