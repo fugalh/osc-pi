@@ -30,6 +30,13 @@ public:
     printf("%s\n", url().c_str());
   }
 
+  void dispatch(std::string path, lo::Message msg)
+  {
+    size_t msglen;
+    auto data = msg.serialise(path, nullptr, &msglen);
+    dispatch_data(data, msglen);
+  }
+
   using lo::Server::_handlers;
 };
 
@@ -84,24 +91,24 @@ TEST(Handler, handlers_registered_and_deregistered) {
   EXPECT_THAT(osc._handlers.count("/clear,i"), Eq(0));
 }
 
-/*
 TEST(Handler, handles_set)
 {
+  TServer osc;
   NiceMock<RPiMock> pi;
-  Handler h(&pi);
+  Handler h(&osc, &pi);
 
   EXPECT_CALL(pi, gpio_set(RPI_V2_GPIO_P1_07));
 
-  osc.emit("/set", RPI_V2_GPIO_P1_07);
+  osc.dispatch("/set", lo::Message("i", RPI_V2_GPIO_P1_07));
 }
 
 TEST(Handler, handles_clear)
 {
+  TServer osc;
   NiceMock<RPiMock> pi;
-  Handler h(&pi);
+  Handler h(&osc, &pi);
 
   EXPECT_CALL(pi, gpio_clr(RPI_V2_GPIO_P1_07));
 
-  osc.emit("/clear", RPI_V2_GPIO_P1_07);
+  osc.dispatch("/clear", lo::Message("i", RPI_V2_GPIO_P1_07));
 }
-*/

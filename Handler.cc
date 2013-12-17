@@ -34,8 +34,14 @@ Handler::Handler(lo::Server* osc, RPi* pi) : osc_(osc), pi_(pi)
     pi_->gpio_output(pin);
   }
 
-  osc_->add_method("/set", "i", [](){});
-  osc_->add_method("/clear", "i", [](){});
+  osc_->add_method("/set", "i",
+    [this](lo::Message msg) {
+      pi_->gpio_set(msg.argv()[0]->i);
+    });
+  osc_->add_method("/clear", "i",
+    [this](lo::Message msg) {
+      pi_->gpio_clr(msg.argv()[0]->i);
+    });
 }
 
 Handler::~Handler()
